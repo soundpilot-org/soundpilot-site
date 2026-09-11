@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — SoundPilot</title>
+<meta name="description" content="SoundPilot privacy policy. SoundPilot collects no data and cannot transmit anything off your device.">
+<style>
+  :root {
+    --bg: #ffffff; --fg: #14181f; --muted: #5a6472;
+    --accent: #1b3a6b; --rule: #e3e7ec; --card: #f6f8fa;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1319; --fg: #e6eaf0; --muted: #99a3b2;
+      --accent: #8fb4e8; --rule: #242c38; --card: #161c25;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  .wrap { max-width: 44rem; margin: 0 auto; padding: 3rem 1.25rem 5rem; }
+  a { color: var(--accent); }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 .35rem; letter-spacing: -.01em; }
+  h2 { font-size: 1.15rem; margin: 2.4rem 0 .6rem; letter-spacing: -.005em; }
+  .sub { color: var(--muted); margin: 0 0 2.5rem; font-size: .95rem; }
+  .lede {
+    background: var(--card); border: 1px solid var(--rule);
+    border-radius: .6rem; padding: 1.1rem 1.25rem; margin: 0 0 2rem;
+  }
+  .lede p { margin: 0; }
+  table { border-collapse: collapse; width: 100%; margin: .75rem 0; font-size: .95rem; }
+  th, td { text-align: left; padding: .6rem .7rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { font-weight: 600; }
+  .scroll { overflow-x: auto; }
+  ul { padding-left: 1.15rem; }
+  li { margin: .3rem 0; }
+  footer { margin-top: 3.5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: .9rem; }
+  code { background: var(--card); padding: .1rem .35rem; border-radius: .25rem; font-size: .9em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>SoundPilot — Privacy Policy</h1>
+<p class="sub">Effective 11 September 2026</p>
+
+<div class="lede">
+  <p><strong>SoundPilot collects nothing, stores everything on your device, and has no ability to send data anywhere.</strong> The app does not request Android's <code>INTERNET</code> permission, so it is technically incapable of transmitting your information — this is not only a policy commitment but a property of the build.</p>
+</div>
+
+<h2>What we collect</h2>
+<p>Nothing. SoundPilot has no accounts, no sign-in, no analytics, no advertising, no crash reporting, and no third-party SDKs of any kind. We do not collect personal information, usage statistics, device identifiers, or diagnostics. No information about you or your device ever reaches us or anyone else, because the app cannot make network requests.</p>
+
+<h2>What the app stores, and where</h2>
+<p>SoundPilot saves the sound profiles and trigger rules you create — volume levels, ringer and Do Not Disturb settings, and which Bluetooth device a rule is attached to. All of it is written to the app's private storage on your phone. It never leaves the device.</p>
+<p>Uninstalling SoundPilot deletes this data. You can also clear it at any time from Android's app settings.</p>
+
+<h2>Permissions, and why each one exists</h2>
+<div class="scroll">
+<table>
+  <thead>
+    <tr><th>Permission</th><th>Why SoundPilot needs it</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>ACCESS_NOTIFICATION_POLICY</code></td>
+      <td>Lets a profile change Do Not Disturb and silent-ringer state when it is applied. Without it, Android will never allow those modes to be set.</td>
+    </tr>
+    <tr>
+      <td><code>BLUETOOTH_CONNECT</code><br>(Android 12 and newer)</td>
+      <td>Reads your list of paired Bluetooth devices so you can choose one when creating a rule, and detects when that device connects or disconnects so the matching profile can be applied.</td>
+    </tr>
+    <tr>
+      <td><code>BLUETOOTH</code><br>(Android 8–11)</td>
+      <td>The older equivalent of the above, used on versions of Android that predate the runtime permission.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>Bluetooth information is read on your device, used immediately to decide whether a rule should fire, and never stored beyond the device name you deliberately attach to a rule. SoundPilot does <strong>not</strong> request location permission, does not scan for nearby devices, and does not use Bluetooth to determine where you are.</p>
+
+<h2>Sharing</h2>
+<p>We share nothing, because we hold nothing. There are no third parties involved in the app: no analytics provider, no advertising network, no hosting backend, no data processor.</p>
+
+<h2>Children</h2>
+<p>SoundPilot is a general-purpose utility and is not directed at children. It collects no data from anyone, including children.</p>
+
+<h2>Your rights</h2>
+<p>Regulations such as the GDPR give you rights to access, correct, export, and delete personal data held about you. We hold no personal data about you, so there is nothing for us to disclose or erase. The data SoundPilot creates lives on your own device and is entirely under your control.</p>
+
+<h2>Changes to this policy</h2>
+<p>If a future version of SoundPilot adds a feature that changes any of the above — for example optional crash reporting — this page will be updated before that version ships, the effective date will change, and the Google Play Data safety declaration will be updated to match.</p>
+
+<h2>Contact</h2>
+<p>Questions about this policy or about SoundPilot's handling of data: <a href="mailto:privacy@soundpilot.dev">privacy@soundpilot.dev</a></p>
+
+<footer>
+  SoundPilot · <a href="./">Home</a>
+</footer>
+
+</div>
+</body>
+</html>

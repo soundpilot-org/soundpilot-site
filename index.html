@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SoundPilot — volume profiles that switch themselves</title>
+<meta name="description" content="SoundPilot is an Android app that applies your sound profile automatically when a Bluetooth device connects. No accounts, no tracking, no internet permission.">
+<style>
+  :root {
+    --bg: #ffffff; --fg: #14181f; --muted: #5a6472;
+    --accent: #1b3a6b; --rule: #e3e7ec; --card: #f6f8fa;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1319; --fg: #e6eaf0; --muted: #99a3b2;
+      --accent: #8fb4e8; --rule: #242c38; --card: #161c25;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  .wrap { max-width: 44rem; margin: 0 auto; padding: 4rem 1.25rem 5rem; }
+  a { color: var(--accent); }
+  h1 { font-size: 2.3rem; line-height: 1.15; margin: 0 0 .5rem; letter-spacing: -.02em; }
+  .tag { color: var(--muted); font-size: 1.1rem; margin: 0 0 2.75rem; }
+  h2 { font-size: 1.15rem; margin: 2.75rem 0 .6rem; letter-spacing: -.005em; }
+  ul { padding-left: 1.15rem; }
+  li { margin: .45rem 0; }
+  .note {
+    background: var(--card); border: 1px solid var(--rule);
+    border-radius: .6rem; padding: 1.1rem 1.25rem; margin: 2rem 0 0; color: var(--muted);
+    font-size: .95rem;
+  }
+  .note p { margin: 0; }
+  footer { margin-top: 3.5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: .9rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>SoundPilot</h1>
+<p class="tag">Volume profiles that switch themselves.</p>
+
+<p>Set up a sound profile once — volume levels, ringer mode, Do&nbsp;Not&nbsp;Disturb — then attach it to a Bluetooth device. When your car stereo or headphones connect, SoundPilot applies the profile. When they disconnect, it can put things back exactly as they were.</p>
+
+<h2>What it does</h2>
+<ul>
+  <li>Named sound profiles covering media, ring, notification and alarm volumes, ringer mode and Do&nbsp;Not&nbsp;Disturb.</li>
+  <li>Bluetooth rules — connecting a paired device applies the profile you chose for it.</li>
+  <li>Optional revert on disconnect, restoring whatever was playing before the rule fired.</li>
+  <li>A quick-settings tile, so you can switch profiles without opening the app.</li>
+</ul>
+
+<h2>What it doesn't do</h2>
+<p>SoundPilot has no accounts, no sign-in, no analytics, no ads, and no crash reporting. It does not request Android's internet permission at all, so it cannot send anything anywhere — your profiles stay on your phone. The full details are in the <a href="privacy.html">privacy policy</a>.</p>
+
+<div class="note">
+  <p>SoundPilot is in closed testing ahead of its first Google&nbsp;Play release. This page will grow as the app ships.</p>
+</div>
+
+<footer>
+  <a href="privacy.html">Privacy policy</a> · <a href="mailto:privacy@soundpilot.dev">privacy@soundpilot.dev</a>
+</footer>
+
+</div>
+</body>
+</html>
