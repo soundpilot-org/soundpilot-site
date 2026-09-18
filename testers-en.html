@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>SoundPilot — Tester Guide</title>
+<meta name="description" content="Guide for SoundPilot closed-test participants: how to join, what to set up, and what to do across the 14 days.">
+<style>
+  :root {
+    --bg: #ffffff; --fg: #14181f; --muted: #5a6472;
+    --accent: #1b3a6b; --rule: #e3e7ec; --card: #f6f8fa;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1319; --fg: #e6eaf0; --muted: #99a3b2;
+      --accent: #8fb4e8; --rule: #242c38; --card: #161c25;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  .wrap { max-width: 44rem; margin: 0 auto; padding: 3rem 1.25rem 5rem; }
+  a { color: var(--accent); }
+  h1 { font-size: 2.1rem; line-height: 1.15; margin: 0 0 .5rem; letter-spacing: -.02em; }
+  .tag { color: var(--muted); font-size: 1.05rem; margin: 0 0 2.5rem; }
+  h2 { font-size: 1.15rem; margin: 2.5rem 0 .6rem; letter-spacing: -.005em; }
+  ul, ol { padding-left: 1.3rem; }
+  li { margin: .45rem 0; }
+  .lang { font-size: .9rem; color: var(--muted); margin: 0 0 2rem; }
+  .note {
+    background: var(--card); border: 1px solid var(--rule);
+    border-radius: .6rem; padding: 1.1rem 1.25rem; margin: 2rem 0;
+    font-size: .97rem;
+  }
+  .note p { margin: 0; }
+  .note strong { color: var(--fg); }
+  .recap { background: var(--card); border: 1px solid var(--rule); border-radius: .6rem; padding: 1.1rem 1.25rem 1.1rem 2.4rem; margin: 2rem 0 0; }
+  .recap li { margin: .35rem 0; }
+  footer { margin-top: 3.5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: .9rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Tester Guide</h1>
+<p class="tag">Thanks for helping test SoundPilot! This page has everything you need — about three minutes to read.</p>
+<p class="lang"><a href="testers.html">Русская версия</a></p>
+
+<h2>What you're testing</h2>
+<p>SoundPilot is an Android app that automatically switches your phone's sound settings — volume and Do&nbsp;Not&nbsp;Disturb — when you connect your Bluetooth headphones or speaker, and switches them back when you disconnect.</p>
+<p>Example: you connect your earbuds → the phone gets louder and silences calls. You take them off → everything goes back to normal. By itself.</p>
+
+<h2>What you need</h2>
+<ul>
+  <li>An Android phone — Android&nbsp;8 or newer, so roughly any phone from 2018 onwards.</li>
+  <li>Any Bluetooth audio device: earbuds, headphones, a speaker, or your car.</li>
+  <li>Your own Google account on that phone — the one you use for Google&nbsp;Play.</li>
+</ul>
+
+<h2>How to join — one time, 5 minutes</h2>
+<ol>
+  <li>Sergey will send you a personal invitation link.</li>
+  <li>Open the link <strong>in a browser on your phone</strong> and tap “Become a tester”. Make sure you're signed in with your usual Google account.</li>
+  <li>On the same page, follow the link to Google&nbsp;Play and install SoundPilot — just like any normal app.</li>
+</ol>
+
+<div class="note">
+  <p><strong>One important rule:</strong> the test runs for 14&nbsp;days, and Google requires every tester to stay in for the whole time. Please don't leave the testing program or uninstall the app until Sergey says the test is finished — otherwise your spot is lost and can't be recovered.</p>
+</div>
+
+<h2>First setup — 5 minutes</h2>
+<ol>
+  <li>Open the app and allow what it asks for (access to Do&nbsp;Not&nbsp;Disturb, Bluetooth). Without these permissions it simply can't do its job.</li>
+  <li>Create two sound profiles — for example “Normal” (your everyday settings) and “Headphones” (louder, calls silenced).</li>
+  <li>Link your headphones or speaker to a profile: pick the device in the app and choose which profile should turn on when it connects.</li>
+</ol>
+
+<h2>What to do during the 14 days</h2>
+<p>Just use it as part of your normal life — ideally a little every day:</p>
+<ul>
+  <li>Connect and disconnect your Bluetooth device the way you always do. Check that the profile switches on by itself and switches back when you disconnect.</li>
+  <li>Sometimes switch profiles manually from the app.</li>
+  <li>Try the tile in quick settings: swipe down from the top of the screen, tap the pencil/edit button, and drag the SoundPilot tile into your panel. Then tap it to switch profiles.</li>
+</ul>
+<p>That's it. No special skills needed — the everyday stuff is exactly what we want tested.</p>
+
+<h2>How to tell us what you found</h2>
+<p>Write in the Telegram group “SoundPilot testers” — or message Sergey directly, whichever is easier. There's no required format. Useful things to mention:</p>
+<ul>
+  <li>your phone model and which headphones or speaker you use;</li>
+  <li>what you tried and whether it worked;</li>
+  <li>anything that broke, surprised you, or felt confusing — <strong>no detail is too small</strong>. “I didn't understand what this button does” is genuinely valuable feedback.</li>
+</ul>
+<p>If the automatic switching suddenly stops working, definitely tell us and name your phone model — some phones put apps to sleep to save battery, and finding those cases is one of the main goals of this test.</p>
+
+<h2>Quick recap</h2>
+<ol class="recap">
+  <li>Join via the invitation link, install from Google&nbsp;Play.</li>
+  <li>Set up two profiles and link your Bluetooth device.</li>
+  <li>Use it daily for 14&nbsp;days.</li>
+  <li>Write anything you notice in the Telegram group.</li>
+  <li>Don't leave the program until the test is over.</li>
+</ol>
+
+<p style="margin-top:2.5rem">Thank you! 🎧</p>
+
+<footer>
+  <a href="index.html">SoundPilot</a> · <a href="privacy.html">Privacy policy</a>
+</footer>
+
+</div>
+</body>
+</html>
