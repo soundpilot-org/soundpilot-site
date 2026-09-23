@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — SoundPilot</title>
-<meta name="description" content="SoundPilot privacy policy. SoundPilot collects no data and cannot transmit anything off your device.">
+<meta name="description" content="SoundPilot privacy policy. SoundPilot collects no data and has no network access; your profiles stay on your phone, apart from Android's own backup into your Google account.">
 <style>
   :root {
     --bg: #ffffff; --fg: #14181f; --muted: #5a6472;
@@ -46,18 +46,30 @@
 <div class="wrap">
 
 <h1>SoundPilot — Privacy Policy</h1>
-<p class="sub">Effective 11 September 2026</p>
+<p class="sub">Effective 23 September 2026 · previous version 11 September 2026</p>
 
 <div class="lede">
-  <p><strong>SoundPilot collects nothing, stores everything on your device, and has no ability to send data anywhere.</strong> The app does not request Android's <code>INTERNET</code> permission, so it is technically incapable of transmitting your information — this is not only a policy commitment but a property of the build.</p>
+  <p><strong>SoundPilot collects nothing, stores everything on your device, and has no ability to send data anywhere itself.</strong> The app does not request Android's <code>INTERNET</code> permission, so it is technically incapable of transmitting your information — this is not only a policy commitment but a property of the build.</p>
+  <p style="margin-top:.75rem">One thing does leave the phone, and it is not us: if you have Android backup switched on, the system copies your profiles into <em>your own</em> Google account. We never receive it and cannot read it. <a href="#backup">How that works</a>.</p>
 </div>
 
 <h2>What we collect</h2>
-<p>Nothing. SoundPilot has no accounts, no sign-in, no analytics, no advertising, no crash reporting, and no third-party SDKs of any kind. We do not collect personal information, usage statistics, device identifiers, or diagnostics. No information about you or your device ever reaches us or anyone else, because the app cannot make network requests.</p>
+<p>Nothing. SoundPilot has no accounts, no sign-in, no analytics, no advertising, no crash reporting, and no third-party SDKs of any kind. We do not collect personal information, usage statistics, device identifiers, or diagnostics. No information about you or your device ever reaches us, because the app cannot make network requests.</p>
 
 <h2>What the app stores, and where</h2>
-<p>SoundPilot saves the sound profiles and trigger rules you create — volume levels, ringer and Do Not Disturb settings, and which Bluetooth device a rule is attached to. All of it is written to the app's private storage on your phone. It never leaves the device.</p>
-<p>Uninstalling SoundPilot deletes this data. You can also clear it at any time from Android's app settings.</p>
+<p>SoundPilot saves the sound profiles and trigger rules you create — volume levels, ringer and Do Not Disturb settings, and which Bluetooth device a rule is attached to. All of it is written to the app's private storage on your phone, where no other app can read it.</p>
+<p>Clearing the app's data from Android's app settings erases it at any time. Uninstalling SoundPilot removes the copy on your phone — but if Android backup is on, a copy may remain in your Google account, and reinstalling can restore it. That is the one qualification to "it stays on your device", and it is explained next.</p>
+
+<h2 id="backup">Android's backup — the one copy that leaves your phone</h2>
+<p>SoundPilot takes part in Android's standard backup, which is a platform feature, not something the app operates. Two transports use it: <strong>Auto Backup</strong>, which copies app data into your Google account, and <strong>device-to-device transfer</strong>, which moves it directly when you set up a new phone.</p>
+<p>Exactly one file is included, and the app names it explicitly rather than backing up everything it holds: the profiles store. In practice that means <strong>your profiles, your trigger rules, which profile is active, and the names of the Bluetooth devices you have attached to rules</strong>. Caches and anything transient are excluded.</p>
+<p>What this does and does not mean:</p>
+<ul>
+  <li>The backup goes to <strong>your own Google account</strong>, under your Google account terms — not to us. We have no access to it, no way to request it, and no way to read it. We do not know it exists.</li>
+  <li>It is <strong>your setting, not ours</strong>. If Android backup is off, nothing is copied anywhere. You can turn it off in Android's Settings, under Google → Backup, and you can delete existing app backups from the same place or from the Google One app.</li>
+  <li>It exists because it is useful: it is what lets your profiles survive a lost phone or an upgrade, instead of being rebuilt by hand. We kept it on deliberately.</li>
+  <li>It is still <strong>not collection by us</strong> in the sense Google Play's Data safety section uses, which is why our Play declaration says no data is collected. The data moves between you and Google; the developer is not a party to it.</li>
+</ul>
 
 <h2>Permissions, and why each one exists</h2>
 <div class="scroll">
@@ -78,19 +90,40 @@
       <td><code>BLUETOOTH</code><br>(Android 8–11)</td>
       <td>The older equivalent of the above, used on versions of Android that predate the runtime permission.</td>
     </tr>
+    <tr>
+      <td><code>SYSTEM_ALERT_WINDOW</code></td>
+      <td>Draws the floating volume control on top of other apps, which is the whole point of that feature. You grant it from a system settings screen, and the control only appears while you have switched it on.</td>
+    </tr>
+    <tr>
+      <td><code>FOREGROUND_SERVICE</code><br>(Android 9 and newer)</td>
+      <td>Keeps the floating control running while it is switched on, instead of the system shutting it down moments after you leave the app. The service starts when you enable the overlay and stops when you disable it.</td>
+    </tr>
+    <tr>
+      <td><code>FOREGROUND_SERVICE_SPECIAL_USE</code><br>(Android 14 and newer)</td>
+      <td>Newer Android versions require an app to state what kind of foreground service it runs. This is that declaration for the floating control — it grants no additional access.</td>
+    </tr>
+    <tr>
+      <td><code>POST_NOTIFICATIONS</code><br>(Android 13 and newer)</td>
+      <td>Shows the notification that Android requires alongside the floating control, so the feature is never running invisibly. It is the only notification SoundPilot posts.</td>
+    </tr>
   </tbody>
 </table>
 </div>
-<p>Bluetooth information is read on your device, used immediately to decide whether a rule should fire, and never stored beyond the device name you deliberately attach to a rule. SoundPilot does <strong>not</strong> request location permission, does not scan for nearby devices, and does not use Bluetooth to determine where you are.</p>
+<p>That is the complete list — seven permissions, and no others. SoundPilot requests <strong>no location permission</strong>, no camera, no microphone, no contacts, no storage access, and no <code>INTERNET</code> permission.</p>
+<p>Bluetooth information is read on your device, used immediately to decide whether a rule should fire, and never stored beyond the device name you deliberately attach to a rule. SoundPilot does not scan for nearby devices and does not use Bluetooth to determine where you are.</p>
+
+<h2>One more thing the app checks</h2>
+<p>Some manufacturers shut background apps down aggressively, which would stop your profiles from being applied. So that the setup screens can send you straight to the right settings page, SoundPilot checks whether certain manufacturer settings apps are present — the battery and auto-start managers from Samsung, Xiaomi, Huawei, Honor, OPPO, OnePlus, vivo and Transsion.</p>
+<p>This is a fixed list, written into the app's manifest and visible to anyone who inspects it. SoundPilot can check only for those specific apps — it cannot see the rest of what you have installed — and the answer is used on the spot to decide whether to show a button. Nothing is recorded, and nothing is sent.</p>
 
 <h2>Sharing</h2>
-<p>We share nothing, because we hold nothing. There are no third parties involved in the app: no analytics provider, no advertising network, no hosting backend, no data processor.</p>
+<p>We share nothing, because we hold nothing. There are no third parties involved in the app: no analytics provider, no advertising network, no hosting backend, no data processor. The Android backup described above is not a sharing arrangement of ours — it is a transfer between you and Google, using your own account, which you can switch off.</p>
 
 <h2>Children</h2>
 <p>SoundPilot is a general-purpose utility and is not directed at children. It collects no data from anyone, including children.</p>
 
 <h2>Your rights</h2>
-<p>Regulations such as the GDPR give you rights to access, correct, export, and delete personal data held about you. We hold no personal data about you, so there is nothing for us to disclose or erase. The data SoundPilot creates lives on your own device and is entirely under your control.</p>
+<p>Regulations such as the GDPR give you rights to access, correct, export, and delete personal data held about you. We hold no personal data about you, so there is nothing for us to disclose or erase. The data SoundPilot creates lives on your own device — and, if you have Android backup on, in your own Google account — and is entirely under your control in both places.</p>
 
 <h2>Changes to this policy</h2>
 <p>If a future version of SoundPilot adds a feature that changes any of the above — for example optional crash reporting — this page will be updated before that version ships, the effective date will change, and the Google Play Data safety declaration will be updated to match.</p>
