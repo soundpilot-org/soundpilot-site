@@ -46,7 +46,7 @@
 <div class="wrap">
 
 <h1>SoundPilot — Privacy Policy</h1>
-<p class="sub">Effective 23 September 2026 · previous version 11 September 2026</p>
+<p class="sub">Effective 5 October 2026 · previous version 23 September 2026</p>
 
 <div class="lede">
   <p><strong>SoundPilot collects nothing, stores everything on your device, and has no ability to send data anywhere itself.</strong> The app does not request Android's <code>INTERNET</code> permission, so it is technically incapable of transmitting your information — this is not only a policy commitment but a property of the build.</p>
@@ -91,6 +91,14 @@
       <td>The older equivalent of the above, used on versions of Android that predate the runtime permission.</td>
     </tr>
     <tr>
+      <td><code>REQUEST_OBSERVE_COMPANION_DEVICE_PRESENCE</code></td>
+      <td>Asks Android to tell SoundPilot when one specific Bluetooth device — one you chose and confirmed by name — comes into range. Some phones freeze background apps so aggressively that the ordinary connect signal never arrives; on those, this is the route that still works.</td>
+    </tr>
+    <tr>
+      <td><code>REQUEST_COMPANION_RUN_IN_BACKGROUND</code></td>
+      <td>Lets SoundPilot act on that signal while it is not open. Without it the phone would wake the app and stop it again before your profile could be applied.</td>
+    </tr>
+    <tr>
       <td><code>SYSTEM_ALERT_WINDOW</code></td>
       <td>Draws the floating volume control on top of other apps, which is the whole point of that feature. You grant it from a system settings screen, and the control only appears while you have switched it on.</td>
     </tr>
@@ -106,11 +114,16 @@
       <td><code>POST_NOTIFICATIONS</code><br>(Android 13 and newer)</td>
       <td>Shows the notification that Android requires alongside the floating control, so the feature is never running invisibly. It is the only notification SoundPilot posts.</td>
     </tr>
+    <tr>
+      <td><code>RECEIVE_BOOT_COMPLETED</code></td>
+      <td>Brings the floating volume control back after you restart the phone or after the app updates — and only if you had it switched on. Nothing else happens at startup; the app does not launch itself to do anything in the background.</td>
+    </tr>
   </tbody>
 </table>
 </div>
-<p>That is the complete list — seven permissions, and no others. SoundPilot requests <strong>no location permission</strong>, no camera, no microphone, no contacts, no storage access, and no <code>INTERNET</code> permission.</p>
+<p>That is the complete list — ten permissions, and no others. SoundPilot requests <strong>no location permission</strong>, no camera, no microphone, no contacts, no storage access, and no <code>INTERNET</code> permission.</p>
 <p>Bluetooth information is read on your device, used immediately to decide whether a rule should fire, and never stored beyond the device name you deliberately attach to a rule. SoundPilot does not scan for nearby devices and does not use Bluetooth to determine where you are.</p>
+<p>Two of those permissions deserve a plainer sentence than a table row gives them. Asking Android to watch for a companion device is a <strong>presence observation</strong>: for the one device you picked, the system tells SoundPilot when that device is there. Android asks you to confirm each device once, by name, in a dialog you have to accept — the app cannot add a device quietly. It learns nothing about where you are, nothing about any other device, and nothing it could send anywhere even if it wanted to.</p>
 
 <h2>One more thing the app checks</h2>
 <p>Some manufacturers shut background apps down aggressively, which would stop your profiles from being applied. So that the setup screens can send you straight to the right settings page, SoundPilot checks whether certain manufacturer settings apps are present — the battery and auto-start managers from Samsung, Xiaomi, Huawei, Honor, OPPO, OnePlus, vivo and Transsion.</p>
