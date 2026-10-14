@@ -61,8 +61,9 @@
 <p>A report contains:</p>
 <ul>
   <li>the kind of error and where in SoundPilot's code it happened (the class, method and line);</li>
-  <li>the SoundPilot version;</li>
-  <li>a description of the phone: maker and model, Android version, screen size, total memory, and its language (not its region);</li>
+  <li>for an error in the background, which part of SoundPilot was running (for example, the Bluetooth trigger or the home-screen widget);</li>
+  <li>the SoundPilot version, when it was started, and whether it was on screen at the time;</li>
+  <li>a description of the phone: maker and model, Android version, processor, screen size and orientation, total memory, and its language (not its region);</li>
   <li>which of SoundPilot's permissions are granted, since a missing one often explains a failure;</li>
   <li>a random identifier created when SoundPilot was installed, which lets us tell one phone's repeated crash from many phones' single crashes. It is not your Google account, your phone number, or any hardware identifier, and it changes if you reinstall.</li>
 </ul>
@@ -70,12 +71,12 @@
 <ul>
   <li><strong>the error's message text</strong> — the app removes it before sending, because that is where things like a profile name or a Bluetooth device's name or address could otherwise appear;</li>
   <li>your profiles, rules, or the names or addresses of your Bluetooth devices;</li>
-  <li>your IP address (it is not stored), your location or time zone, or anything about other apps;</li>
+  <li>your IP address (it is not stored), your location or time zone, which app store installed SoundPilot, or anything about other apps;</li>
   <li>the phone's battery, network or storage state;</li>
   <li>screenshots, screen contents, or a trail of what you did before the crash;</li>
   <li>any record of the app running normally — nothing is sent unless something went wrong.</li>
 </ul>
-<p>Reports are kept for <strong>30 days</strong> and then deleted. Encryption in transit (HTTPS) protects every report on its way to Sentry. Development builds of SoundPilot send nothing at all.</p>
+<p>Reports are kept for <strong>30 days</strong> and then deleted. Encryption in transit (HTTPS) protects every report on its way to Sentry. Debug builds of SoundPilot, the ones used while it is being written, send nothing at all.</p>
 
 <h2>What the app stores, and where</h2>
 <p>SoundPilot saves the sound profiles and trigger rules you create — volume levels, ringer and Do Not Disturb settings, and which Bluetooth device a rule is attached to. All of it is written to the app's private storage on your phone, where no other app can read it.</p>
