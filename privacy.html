@@ -46,7 +46,7 @@
 <div class="wrap">
 
 <h1>SoundPilot — Privacy Policy</h1>
-<p class="sub">Effective 5 October 2026 · previous version 23 September 2026</p>
+<p class="sub">Effective 4 November 2026 · previous version 5 October 2026</p>
 
 <div class="lede">
   <p><strong>SoundPilot collects nothing, stores everything on your device, and has no ability to send data anywhere itself.</strong> The app does not request Android's <code>INTERNET</code> permission, so it is technically incapable of transmitting your information — this is not only a policy commitment but a property of the build.</p>
@@ -118,10 +118,14 @@
       <td><code>RECEIVE_BOOT_COMPLETED</code></td>
       <td>Brings the floating volume control back after you restart the phone or after the app updates — and only if you had it switched on. Nothing else happens at startup; the app does not launch itself to do anything in the background.</td>
     </tr>
+    <tr>
+      <td><code>VIBRATE</code></td>
+      <td>Gives the short tap you feel when a button on the floating volume control changes the volume. Some phones refuse that feedback to an app without this permission. It is granted when you install the app, without a prompt, and it lets SoundPilot do nothing except vibrate.</td>
+    </tr>
   </tbody>
 </table>
 </div>
-<p>That is the complete list — ten permissions, and no others. SoundPilot requests <strong>no location permission</strong>, no camera, no microphone, no contacts, no storage access, and no <code>INTERNET</code> permission.</p>
+<p>That is the complete list — eleven permissions, and no others. SoundPilot requests <strong>no location permission</strong>, no camera, no microphone, no contacts, no storage access, and no <code>INTERNET</code> permission.</p>
 <p>Bluetooth information is read on your device, used immediately to decide whether a rule should fire, and never stored beyond the device name you deliberately attach to a rule. SoundPilot does not scan for nearby devices and does not use Bluetooth to determine where you are.</p>
 <p>Two of those permissions deserve a plainer sentence than a table row gives them. Asking Android to watch for a companion device is a <strong>presence observation</strong>: for the one device you picked, the system tells SoundPilot when that device is there. Android asks you to confirm each device once, by name, in a dialog you have to accept — the app cannot add a device quietly. It learns nothing about where you are, nothing about any other device, and nothing it could send anywhere even if it wanted to.</p>
 
