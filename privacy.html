@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — SoundPilot</title>
-<meta name="description" content="SoundPilot privacy policy. Your profiles and settings stay on your phone, apart from Android's backup to your own Google account; the app itself sends only crash reports, with no message, no account and no identity beyond a random install number.">
+<meta name="description" content="SoundPilot privacy policy. Your profiles and settings stay on your phone, apart from Android's backup to your own Google account; the app itself sends only crash reports, with no message, no account and no identity beyond a random installation ID.">
 <style>
   :root {
     --bg: #ffffff; --fg: #14181f; --muted: #5a6472;
@@ -40,6 +40,7 @@
   li { margin: .3rem 0; }
   footer { margin-top: 3.5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: .9rem; }
   code { background: var(--card); padding: .1rem .35rem; border-radius: .25rem; font-size: .9em; }
+  p code, li code { overflow-wrap: anywhere; }
 </style>
 </head>
 <body>
@@ -49,12 +50,12 @@
 <p class="sub">Effective <!-- set in the close-out commit, to the day the merge deploys --><mark>[date of publication]</mark> · previous version 4 November 2026</p>
 
 <div class="lede">
-  <p><strong>Your profiles and settings stay on your phone. The app itself sends only crash reports</strong> — what part of the app failed, on what kind of phone — so that a crash we never saw can still be fixed. A report carries no message text, no profile or device names, no account, and no identity beyond a random number created when the app was installed. <a href="#crash-reports">What a crash report contains</a>.</p>
+  <p><strong>Your profiles and settings stay on your phone. The app itself sends only crash reports</strong> — what part of the app failed, on what kind of phone — so that a crash we never saw can still be fixed. A report carries no message text, no profile or device names, no account, and no identity beyond a random installation ID. <a href="#crash-reports">What a crash report contains</a>.</p>
   <p style="margin-top:.75rem">One more copy can leave the phone, and we never receive it: if you have Android backup switched on, the system copies your profiles, rules, History and the Bluetooth devices you chose into <em>your own</em> Google account. We have no access to it and cannot read it. <a href="#backup">How that works</a>.</p>
 </div>
 
 <h2>What we collect</h2>
-<p>The app itself sends only crash reports. SoundPilot has no accounts, no sign-in, no usage analytics, no advertising, and no usage statistics. It does not record which screens you open, what you tap, or when you use it.</p>
+<p>The app itself sends only crash reports, described below. SoundPilot has no accounts, no sign-in and no advertising.</p>
 
 <h2 id="crash-reports">Crash reports</h2>
 <p>When SoundPilot crashes, or stops responding, or hits an unexpected error in the background, it sends a report to <strong>Sentry</strong>, a crash-reporting service, in its <strong>EU data region</strong>. Sentry processes reports only on our behalf, as our data processor.</p>
@@ -65,7 +66,7 @@
   <li>the SoundPilot version, when it was started, and whether it was on screen at the time;</li>
   <li>a description of the phone: maker and model, Android version, processor, screen size and orientation, total memory, and its language (not its region);</li>
   <li>which of SoundPilot's permissions are granted, since a missing one often explains a failure;</li>
-  <li>a random identifier created when SoundPilot was installed, which lets us tell one phone's repeated crash from many phones' single crashes. It is not your Google account, your phone number, or any hardware identifier, and it changes if you reinstall.</li>
+  <li>a random installation ID, created when SoundPilot was installed, which lets us tell one phone's repeated crash from many phones' single crashes. It is not your Google account, your phone number, or any hardware identifier, and it changes if you reinstall.</li>
 </ul>
 <p>A report never contains:</p>
 <ul>
@@ -83,18 +84,30 @@
 
 <h2>What the app stores, and where</h2>
 <p>SoundPilot saves the sound profiles and trigger rules you create — volume levels, ringer and Do Not Disturb settings, and which Bluetooth device a rule is attached to. It also keeps a History list of what it applied and when, and a short record of any error it caught in the background (the kind of error and its message, at most 200 characters), which you can see in the app under <em>Errors SoundPilot caught in the background</em>. That record stays on the phone: a crash report about the same error carries its kind, never its message. All of it is written to the app's private storage on your phone, where no other app can read it.</p>
-<p>Two things that belong to crash reporting are kept there as well. A crash report that cannot be sent straight away, for example because the phone has no connection, waits in the app's private storage until it can be sent. The random identifier described above is stored there too. Neither is part of Android's backup.</p>
+<p>Two things that belong to crash reporting are kept there as well. A crash report that cannot be sent straight away, for example because the phone has no connection, waits in the app's private storage until it can be sent. The random installation ID described above is stored there too. Neither is part of Android's backup.</p>
 <p>Clearing the app's data from Android's app settings erases it at any time. Uninstalling SoundPilot removes the copy on your phone — but if Android backup is on, a copy may remain in your Google account, and reinstalling can restore it. That is the one qualification to "it stays on your device", and it is explained next.</p>
 
-<h2 id="backup">Android's backup — the one copy of your profiles, rules, History and chosen Bluetooth devices that leaves your phone</h2>
+<h2 id="backup">Android's backup — the copy that goes to your own Google account</h2>
 <p>SoundPilot takes part in Android's standard backup, which is a platform feature, not something the app operates. Two transports use it: <strong>Auto Backup</strong>, which copies app data into your Google account, and <strong>device-to-device transfer</strong>, which moves it directly when you set up a new phone.</p>
-<p>Exactly one file is included, and the app names it explicitly rather than backing up everything it holds: the profiles store. In practice that means <strong>your profiles, your trigger rules, which profile is active, the names and Bluetooth addresses of the devices you attached to rules, the History list of what was applied and when, the app's own records of background errors and of why Android last stopped it, your display settings for the app and the floating control, and the app's working state, such as when a trigger last arrived</strong>. Caches and anything transient are excluded.</p>
+<p>Exactly one file is included, and the app names it explicitly rather than backing up everything it holds: the profiles store. In practice that means:</p>
+<ul>
+  <li>your profiles;</li>
+  <li>your trigger rules;</li>
+  <li>which profile is active;</li>
+  <li>the names and Bluetooth addresses of the devices you attached to rules, and the addresses noted when you start a Bluetooth check under Troubleshooting;</li>
+  <li>the History list of what was applied and when;</li>
+  <li>the app's own record of background errors;</li>
+  <li>its record of why Android last stopped it;</li>
+  <li>your display settings for the app and the floating control;</li>
+  <li>the app's working state, such as when a trigger last arrived.</li>
+</ul>
+<p>Caches and anything transient are excluded.</p>
 <p>What this does and does not mean:</p>
 <ul>
   <li>The backup goes to <strong>your own Google account</strong>, under your Google account terms — not to us. We have no access to it, no way to request it, and no way to read it. We do not know it exists.</li>
   <li>It is <strong>your setting, not ours</strong>. If Android backup is off, nothing is copied anywhere. You can turn it off in Android's Settings, under Google → Backup, and you can delete existing app backups from the same place or from the Google One app.</li>
   <li>It exists because it is useful: it is what lets your profiles survive a lost phone or an upgrade, instead of being rebuilt by hand. We kept it on deliberately.</li>
-  <li>It is still <strong>not collection by us</strong> in the sense Google Play's Data safety section uses: the data moves between you and Google, and the developer is not a party to it. That is why our Play declaration lists only crash reports and the random installation identifier that comes with them, and not your profiles.</li>
+  <li>It is still <strong>not collection by us</strong> in the sense Google Play's Data safety section uses: the data moves between you and Google, and the developer is not a party to it. That is why our Play declaration lists only crash reports and the random installation ID that comes with them, and not your profiles.</li>
 </ul>
 
 <h2>Permissions, and why each one exists</h2>
@@ -164,13 +177,16 @@
 <p>This is a fixed list, written into the app's manifest and visible to anyone who inspects it. SoundPilot can check only for those specific apps — it cannot see the rest of what you have installed — and the answer is used on the spot to decide whether to show a button. Nothing is recorded, and nothing is sent.</p>
 
 <h2>Sharing</h2>
-<p>We do not sell or share data. Crash reports go to one service, Sentry, which stores them for us in its EU region and processes them only on our behalf. To run its service, Sentry relies on sub-processors of its own, listed at <a href="https://sentry.io/legal/subprocessors/">sentry.io/legal/subprocessors</a>. There is no analytics provider, no advertising network, and no other backend. The Android backup described above is not a sharing arrangement of ours — it is a transfer between you and Google, using your own account, which you can switch off.</p>
+<p>We do not sell or share data. Crash reports go to one service, Sentry, which stores them for us in its EU region and processes them only on our behalf. To run its service, Sentry relies on sub-processors of its own, listed at <a href="https://sentry.io/legal/subprocessors/">sentry.io/legal/subprocessors</a>. No advertising network receives anything from SoundPilot. The Android backup described above is not a sharing arrangement of ours — it is a transfer between you and Google, using your own account, which you can switch off.</p>
 
 <h2>Children</h2>
-<p>SoundPilot is a general-purpose utility and is not directed at children. The app itself sends only crash reports, from anyone, children included: the reports described above.</p>
+<p>SoundPilot is a general-purpose utility and is not aimed at children. The only thing the app sends is a crash report, and it contains nothing that identifies who was using the phone.</p>
 
 <h2 id="your-rights">Your rights</h2>
-<p>Regulations such as the GDPR give you rights to access, correct, export, and delete personal data held about you. Crash reports carry no name, account or contact detail, so we cannot find which reports came from your phone. If you would like them deleted anyway, write to the address below with your phone model, the SoundPilot version and the period, and we will delete every group of crash reports that holds a report from that model and version in that period. Sentry deletes a group of reports of the same error as a whole, not one report at a time, so this also removes reports of that error from other phones. Every report is deleted after 30 days in any case. The data SoundPilot creates — your profiles and rules — lives on your own device and, if you have Android backup on, in your own Google account, and is entirely under your control in both places.</p>
+<p>Regulations such as the GDPR give you rights to access, correct, export, and delete personal data held about you.</p>
+<p>Crash reports carry no name, account or contact detail, so we cannot find which reports came from your phone. Every report is deleted after 30 days in any case.</p>
+<p>If you would like yours deleted sooner, write to <a href="mailto:privacy@soundpilot.dev">privacy@soundpilot.dev</a> with your phone model, the SoundPilot version and the period. We will delete every group of crash reports that holds a report from that model and version in that period. Sentry deletes a group of reports of the same error as a whole, not one report at a time, so this also removes reports of that error from other phones.</p>
+<p>The data SoundPilot creates — your profiles and rules — lives on your own device and, if you have Android backup on, in your own Google account, and is entirely under your control in both places.</p>
 
 <h2>Changes to this policy</h2>
 <p>If a future version of SoundPilot changes any of the above, this page will be updated before that version ships, the effective date will change, and the Google Play Data safety declaration will be updated to match.</p>
