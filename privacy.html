@@ -36,6 +36,13 @@
   th, td { text-align: left; padding: .6rem .7rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
   th { font-weight: 600; }
   .scroll { overflow-x: auto; }
+  @media (max-width: 40rem) {
+    table, tbody, tr, td { display: block; }
+    thead { display: none; }
+    tr { border-bottom: 1px solid var(--rule); padding: .5rem 0; }
+    td { border-bottom: 0; padding: .15rem 0; }
+    td:first-child { font-weight: 600; }
+  }
   ul { padding-left: 1.15rem; }
   li { margin: .3rem 0; }
   footer { margin-top: 3.5rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: .9rem; }
@@ -47,11 +54,11 @@
 <div class="wrap">
 
 <h1>SoundPilot — Privacy Policy</h1>
-<p class="sub">Effective 18 November 2026 · previous version 4 November 2026</p>
+<p class="sub">Effective 23 November 2026 · previous version 18 November 2026</p>
 
 <div class="lede">
   <p><strong>Your profiles and settings stay on your phone. The app itself sends only crash reports</strong> — what part of the app failed, on what kind of phone — so that a crash we never saw can still be fixed. A report carries no message text, no profile or device names, no account, and no identity beyond a random installation ID. <a href="#crash-reports">What a crash report contains</a>.</p>
-  <p style="margin-top:.75rem">One more copy can leave the phone, and we never receive it: if you have Android backup switched on, the system copies your profiles, rules, History and the Bluetooth devices you chose into <em>your own</em> Google account. We have no access to it and cannot read it. <a href="#backup">How that works</a>.</p>
+  <p style="margin-top:.75rem">One more copy can leave the phone, and we never receive it: if you have Android backup switched on, the system copies your profiles, rules, History and the Bluetooth devices you chose into <em>your own</em> Google account. From SoundPilot 0.4 that copy also holds the start and end times of the calendar events the app recorded, if you use a calendar rule. We have no access to it and cannot read it. <a href="#backup">How that works</a>.</p>
 </div>
 
 <h2>What we collect</h2>
@@ -72,6 +79,7 @@
 <ul>
   <li><strong>the error's message text</strong> — the app removes it before sending, because that is where things like a profile name or a Bluetooth device's name or address could otherwise appear;</li>
   <li>your profiles, rules, or the names or addresses of your Bluetooth devices;</li>
+  <li>anything from your calendar, including the start and end times of your events;</li>
   <li>your IP address (Sentry receives it with the connection, as any server does, but does not store it or work out a location from it), your location or time zone, which app store installed SoundPilot, or anything about other apps;</li>
   <li>the phone's battery, network or storage state;</li>
   <li>screenshots, screen contents, or a trail of what you did before the crash;</li>
@@ -80,10 +88,11 @@
 <p>Reports are kept for <strong>30 days</strong> and then deleted. Encryption in transit (HTTPS) protects every report on its way to Sentry. Debug builds of SoundPilot, the ones used while it is being written, send nothing at all.</p>
 
 <h2 id="feedback">If you write to us</h2>
-<p>The app's <em>Send feedback</em> option does not send anything itself. It opens a draft email to <a href="mailto:feedback@soundpilot.dev">feedback@soundpilot.dev</a> in your own mail app, with four lines filled in under your message: the SoundPilot version, the Android version, the phone's maker and model, and which of SoundPilot's permissions are missing. You can read and change every line, and nothing goes anywhere unless you send it yourself, from your own mail app. When you do, we receive what any email brings: your email address, your message and those lines. We keep it in our mailbox like any other email, and use it only to answer you and to fix what you reported. Reply in the same conversation, or write to <a href="mailto:privacy@soundpilot.dev">privacy@soundpilot.dev</a>, and we will delete it.</p>
+<p>The app's <em>Send feedback</em> option does not send anything itself. It opens a draft email to <a href="mailto:feedback@soundpilot.dev">feedback@soundpilot.dev</a> in your own mail app, with four lines filled in under your message: the SoundPilot version, the Android version, the phone's maker and model, and which of SoundPilot's permissions are missing. From SoundPilot 0.4 there is a fifth: when Android last stopped SoundPilot (the date and time, with your phone's offset from UTC) and the reason Android gave for it, in Android's own terms (for example, low memory, or that you stopped the app), with SoundPilot's own reading of how it was stopped (for example, swiped away from recent apps). On Android 10 and older, which keep no such record, the line says so. You can read and change every line, and nothing goes anywhere unless you send it yourself, from your own mail app. When you do, we receive what any email brings: your email address, your message and those lines. We keep it in our mailbox like any other email, and use it only to answer you and to fix what you reported. Reply in the same conversation, or write to <a href="mailto:privacy@soundpilot.dev">privacy@soundpilot.dev</a>, and we will delete it.</p>
 
 <h2>What the app stores, and where</h2>
 <p>SoundPilot saves the sound profiles and trigger rules you create — volume levels, ringer and Do Not Disturb settings, and which Bluetooth device a rule is attached to. It also keeps a History list of what it applied and when, and a short record of any error it caught in the background (the kind of error and its message, at most 200 characters), which you can see in the app under <em>Errors SoundPilot caught in the background</em>. That record stays on the phone: a crash report about the same error carries its kind, never its message. All of it is written to the app's private storage on your phone, where no other app can read it.</p>
+<p>From SoundPilot 0.4, if you create a calendar rule, the app also keeps the start and end times of calendar events: the event under way, until it ends, and, in History, each event the rule saw begin or end (whether or not that changed your sound) and each event that passed while SoundPilot could not act. Back-to-back events are kept as one. It keeps times only — never an event's title, place, guests or notes, because it never reads them (see the calendar permission below). History holds at most 200 entries; the oldest drop off as new ones arrive.</p>
 <p>Two things that belong to crash reporting are kept there as well. A crash report that cannot be sent straight away, for example because the phone has no connection, waits in the app's private storage until it can be sent. The random installation ID described above is stored there too. Neither is part of Android's backup.</p>
 <p>Clearing the app's data from Android's app settings erases it at any time. Uninstalling SoundPilot removes the copy on your phone — but if Android backup is on, a copy may remain in your Google account, and reinstalling can restore it. That is the one qualification to "it stays on your device", and it is explained next.</p>
 
@@ -95,11 +104,11 @@
   <li>your trigger rules;</li>
   <li>which profile is active;</li>
   <li>the names and Bluetooth addresses of the devices you attached to rules, and the addresses noted when you start a Bluetooth check under Troubleshooting;</li>
-  <li>the History list of what was applied and when;</li>
+  <li>the History list of what was applied and when, including, from SoundPilot 0.4, the start and end times of the calendar events it records;</li>
   <li>the app's own record of background errors;</li>
   <li>its record of why Android last stopped it;</li>
   <li>your display settings for the app and the floating control;</li>
-  <li>the app's working state, such as when a trigger last arrived.</li>
+  <li>the app's working state, such as when a trigger last arrived and, from SoundPilot 0.4, the start and end times of a calendar event under way and the time zone your schedules were last worked out in.</li>
 </ul>
 <p>Caches and anything transient are excluded.</p>
 <p>What this does and does not mean:</p>
@@ -159,16 +168,24 @@
     </tr>
     <tr>
       <td><code>RECEIVE_BOOT_COMPLETED</code></td>
-      <td>Brings the floating volume control back after you restart the phone or after the app updates — and only if you had it switched on. Nothing else happens at startup; the app does not launch itself to do anything in the background.</td>
+      <td>After you restart the phone, or after the app updates, SoundPilot sets up again what the restart cleared: the floating volume control, only if you had it switched on; the alarm your time schedules run on; and Android's watch for each Bluetooth device you picked. If a schedule is on at that moment, it switches to that profile. From SoundPilot 0.4, if you have a calendar rule, it also reads your calendar's event times again then, and if an event is under way, it switches to that profile the same way. It starts nothing you had not set up.</td>
     </tr>
     <tr>
       <td><code>VIBRATE</code></td>
       <td>Gives the short tap you feel when a button on the floating volume control changes the volume. Some phones refuse that feedback to an app without this permission. It is granted when you install the app, without a prompt, and it lets SoundPilot do nothing except vibrate.</td>
     </tr>
+    <tr>
+      <td><code>READ_CALENDAR</code><br>(SoundPilot 0.4 and newer)</td>
+      <td>Lets a calendar rule switch your profile while a calendar event is on. SoundPilot asks Android only for the start and end times of events on the calendars you own and show in your calendar app, over the day behind and the day ahead, and skips all-day events, events longer than 8 hours, events shown as free, and cancelled or declined events. It never reads an event's title, place, guests or notes, and never changes your calendar. It reads those times in the background: when your calendar changes, when an event starts or ends, after a restart, and at least every three hours. It asks for this permission only when you choose a calendar rule, or on its Status screen if you already have one and the access is missing. The times it keeps stay on your phone and, like your profiles, are included in Android's backup to your own Google account if you have backup switched on. They never appear in a crash report.</td>
+    </tr>
+    <tr>
+      <td><code>SCHEDULE_EXACT_ALARM</code><br><em>Alarms &amp; reminders</em><br>(SoundPilot 0.4 and newer, Android 12 and newer)</td>
+      <td>Once it is allowed, Android wakes SoundPilot at the minute your time schedules and calendar rules start and end; without it, Android may wake it late (usually by a few minutes, by up to about an hour on a phone where you rarely open SoundPilot), and they still switch. On Android 14 and newer it is off by default: SoundPilot offers it on its Status screen only after a schedule has switched more than 10 minutes late, and you turn it on under Settings → <em>Alarms &amp; reminders</em>. On Android 12 and 13, Android allows it by default. On every version you can turn it off under Settings → <em>Alarms &amp; reminders</em> at any time. It lets SoundPilot set the time it is woken, and nothing else; nothing leaves the phone.</td>
+    </tr>
   </tbody>
 </table>
 </div>
-<p>That is the complete list — twelve permissions, and no others; the app's build fails if a library tries to add one. SoundPilot requests <strong>no location permission</strong>, no camera, no microphone, no contacts, no storage access, and no advertising ID. (An APK inspector also shows <code>dev.soundpilot.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</code>: an Android support library adds it so that only SoundPilot can send messages to its own parts. It grants nothing to any other app.)</p>
+<p>That is the complete list — fourteen permissions in SoundPilot 0.4 and newer (twelve in 0.3), and no others; the app's build fails if a library tries to add one. SoundPilot requests <strong>no location permission</strong>, no camera, no microphone, no contacts, no storage access, and no advertising ID. (An APK inspector also shows <code>dev.soundpilot.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</code>: an Android support library adds it so that only SoundPilot can send messages to its own parts. It grants nothing to any other app.)</p>
 <p>Bluetooth information is read on your device and used immediately to decide whether a rule should fire. SoundPilot stores the name and the Bluetooth address of each device you attach to a rule, because the address is how it recognises that device; when you start one of the Bluetooth checks under Troubleshooting, it also stores the addresses of the audio devices connected at that moment, so it can tell when a new one connects. These stay on your phone and in the backup described above, and never appear in a crash report. SoundPilot does not scan for nearby devices and does not use Bluetooth to determine where you are.</p>
 <p>Two of those permissions deserve a plainer sentence than a table row gives them. Asking Android to watch for a companion device is a <strong>presence observation</strong>: for the one device you picked, the system tells SoundPilot when that device is there. Android asks you to confirm each device once, by name, in a dialog you have to accept — the app cannot add a device quietly. It learns nothing about where you are and nothing about any other device, and a device's name and address never appear in a crash report.</p>
 
@@ -186,7 +203,7 @@
 <p>Regulations such as the GDPR give you rights to access, correct, export, and delete personal data held about you.</p>
 <p>Crash reports carry no name, account or contact detail, so we cannot find which reports came from your phone. Every report is deleted after 30 days in any case.</p>
 <p>If you would like yours deleted sooner, write to <a href="mailto:privacy@soundpilot.dev">privacy@soundpilot.dev</a> with your phone's maker and model, the SoundPilot version (shown in SoundPilot under <em>About</em>), and roughly when you used it. We will delete every group of crash reports that holds a report from that model and version in that time, and write back when it is done. Sentry deletes a group of reports of the same error as a whole, not one report at a time, so this also removes reports of that error from other phones.</p>
-<p>The data SoundPilot creates — your profiles and rules — lives on your own device and, if you have Android backup on, in your own Google account, and is entirely under your control in both places.</p>
+<p>The data SoundPilot creates — your profiles, rules and History — lives on your own device and, if you have Android backup on, in your own Google account, and is entirely under your control in both places.</p>
 
 <h2>Changes to this policy</h2>
 <p>If a future version of SoundPilot changes any of the above, this page will be updated before that version ships, the effective date will change, and the Google Play Data safety declaration will be updated to match.</p>
